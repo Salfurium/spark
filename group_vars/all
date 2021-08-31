@@ -1,14 +1,15 @@
 user:
-    name: pigmonkey
+    name: david
     uid: 1000
-    group: pigmonkey
+    group: david
+    groups:
+        - wheel
     shell: /usr/bin/zsh
-    email:  peter@havenaut.net
     log:
         dir: log
         rotate: 8
 
-hostname: nous
+hostname: arch-ansible-install
 
 interception:
     caps2esc:
@@ -17,14 +18,14 @@ interception:
         delay: 20000
 
 dotfiles:
-    url: git@github.com:pigmonkey/dotfiles.git
-    destination: projects/dotfiles
+    url: git@github.com:Salfurium/dotfiles.git
+    destination: .dotfiles
     rcup_flags: -fx README.md
 
 aur:
     dir: aur
     packages:
-        - yay
+        - paru-bin
         - downgrade
         - zplug
         - miller
@@ -174,48 +175,6 @@ firejail:
         - ~/.vdirsyncer
         - ~/library
 
-cryptshot:
-    - name: alta
-      uuid: 0a0db776-84c5-48e1-9079-cacfbc5de8a3
-      keyfile: /home/pigmonkey/.keys/usb-alta.key
-      retain:
-        - level: daily
-          interval: 7
-        - level: weekly
-          interval: 6
-        - level: monthly
-          interval: 3
-    - name: bishorn
-      uuid: baeb40a2-b19e-4adc-8ef6-44ee720a4d1a
-      keyfile: /home/pigmonkey/.keys/usb-bishorn.key
-      retain:
-        - level: daily
-          interval: 7
-        - level: weekly
-          interval: 6
-        - level: monthly
-          interval: 3
-    - name: palisade
-      uuid: 9d4ada7c-2c47-4de9-b8d5-1c4158bd3031
-      keyfile: /home/pigmonkey/.keys/usb-palisade.key
-      retain:
-        - level: daily
-          interval: 7
-        - level: weekly
-          interval: 6
-        - level: monthly
-          interval: 3
-    - name: pilchuck
-      uuid: d96a0fc3-7ea1-42f7-b0d0-42e573c478bd
-      keyfile: /home/pigmonkey/.keys/usb-pilchuck.key
-      retain:
-        - level: daily
-          interval: 7
-        - level: weekly
-          interval: 6
-        - level: monthly
-          interval: 3
-
 journal:
     max_size: 500M
 
@@ -305,6 +264,7 @@ base_fonts:
     - ttf-ubuntu-font-family
 
 aur_fonts:
+    - nerd-fonts-cascadia-code
     - ttf-bitstream-charter
     - ttf-cooper-hewitt
     - ttf-courier-prime
